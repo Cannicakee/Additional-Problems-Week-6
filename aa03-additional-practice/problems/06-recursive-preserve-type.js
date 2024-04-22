@@ -27,25 +27,18 @@ However, for bonus points try to solve it both with recursion and iteration.
 */
 
 function recursivePreserveType(array) {
-    if(array.length === 0) return []
-    return function innerFunction(type) {
-        let newArray = [];
-            let changed = array[0]
-            if(typeof changed === type) {
-                newArray.push(changed)
-            } 
-            return newArray.concat(innerFunction(type)(array.slice(1)))
-    }
+    return function filterByType(type) {
+        
+    };
 }
-
 const preserveFunc = recursivePreserveType([1, 'one', 2, 'two', 3, 'three']);
 console.log(preserveFunc('number')); // prints [1, 2, 3]
 console.log(preserveFunc('string')); // prints ['one', 'two', 'three']
 
-// const preserveFunc2 = recursivePreserveType([2, undefined, 'world', { color: 'red' }, true, 3, [4, 5], 'hello', false]);
-// console.log(preserveFunc2('number')); // prints [2, 3]
-// console.log(preserveFunc2('object')); // prints [ { color: 'red' }, [4, 5] ]
-// console.log(preserveFunc2('boolean')); // prints [ true, false ]
+const preserveFunc2 = recursivePreserveType([2, undefined, 'world', { color: 'red' }, true, 3, [4, 5], 'hello', false]);
+console.log(preserveFunc2('number')); // prints [2, 3]
+console.log(preserveFunc2('object')); // prints [ { color: 'red' }, [4, 5] ]
+console.log(preserveFunc2('boolean')); // prints [ true, false ]
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
