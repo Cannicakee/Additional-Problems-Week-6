@@ -15,23 +15,22 @@
 */
 
 function r2d2Speaks(code) {
-    code.forEach(element => {
-        if(element === 0) {
-            setTimeout(() => {
-                console.log("beep")
-            }, 400)
+    for(let i = 0; i < code.length; i++) {
+        let el = code[i];
+        if(el === 0) {
+            console.log("beep");
+            setTimeout(() => {}, 400)
         } else {
-            if(element === 1) {
-                setTimeout(() => {
-                    console.log("boop")
-                }, 800)
+            if(el === 1) {
+                console.log("boop");
+                setTimeout(() => {}, 800)
             }
         }
-    });
+    }
 }
 
-let code = [0, 1, 1, 0];
-r2d2Speaks(code);
+// let code = [0, 1, 1, 0];
+// r2d2Speaks(code);
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
