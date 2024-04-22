@@ -27,10 +27,17 @@ However, for bonus points try to solve it both with recursion and iteration.
 */
 
 function recursivePreserveType(array) {
-    return function filterByType(type) {
-        
-    };
+    return function func(arg, arr = [], index = 0) {
+        if(index === array.length) return arr
+        let el = array[index]
+        if(arg === typeof el){
+            arr.push(el)
+            return func(arg, arr, ++index)
+        } else return func(arg, arr, ++index)
+    }
+
 }
+
 const preserveFunc = recursivePreserveType([1, 'one', 2, 'two', 3, 'three']);
 console.log(preserveFunc('number')); // prints [1, 2, 3]
 console.log(preserveFunc('string')); // prints ['one', 'two', 'three']
