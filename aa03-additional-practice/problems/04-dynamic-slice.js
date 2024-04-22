@@ -20,9 +20,25 @@
 */
 
 function dynamicSlice(start, end) {
-    // Your code here 
+  return function (array) {
+    let newArray = [];
+    for(let i = 0; i < array.length; i++) {
+      let el = array[i]
+      if((i >= start) && (i < end)) {
+        newArray.push(el)
+      }
+    }
+    return newArray;
+  }
 }
+const slicer = dynamicSlice(1, 3);
+    console.log(slicer([0, 1, 2, 3])); // prints [ 1, 2 ]
+  debugger
+    const slicer2 = dynamicSlice(2, 7);
+    console.log(slicer2(['kittens', 'puppies', 'cats', 'dogs'])); // prints [ 'cats', 'dogs' ]
 
+		const slicer3 = dynamicSlice(-10, 2);
+    console.log(slicer3([99, 40, 131, 8])); // prints [ 99, 40 ]
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
     module.exports = dynamicSlice;
